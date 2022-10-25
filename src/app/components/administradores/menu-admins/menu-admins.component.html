@@ -1,0 +1,29 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item routerLink="roles">Roles</a>
+            <a mat-list-item routerLink="personas">Personas</a>
+            <a mat-list-item routerLink="tipoC">Tipo de Contacto</a>
+            <a mat-list-item routerLink="grupos">Grupos</a>
+            <a mat-list-item routerLink="cursos">Cursos</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>Colegio CEBE</span>
+        </mat-toolbar>
+        <a class="boton" routerLink="add">Agregar nuevo Rol</a>
+        <a class="boton" routerLink="add_persona">Agregar nueva persona</a>
+        <a class="boton" routerLink="add_tipoC">Agregar nueva tipo de contacto</a>
+        <a class="boton" routerLink="add_grupo">Agregar nuevo grupo</a>
+        <a class="boton" routerLink="add_curso">Agregar nuevo curso</a>
+        <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
