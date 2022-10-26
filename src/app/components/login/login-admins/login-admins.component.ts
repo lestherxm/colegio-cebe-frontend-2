@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-admins.component.css']
 })
 export class LoginAdminsComponent implements OnInit {
+  
+  correoAdmin: string = '';
 
   constructor() { }
 
