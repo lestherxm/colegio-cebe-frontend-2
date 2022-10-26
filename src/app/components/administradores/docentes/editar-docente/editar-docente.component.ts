@@ -6,25 +6,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 //** importar modelo y servicio necesario para la tabla
-import { CursosService } from 'src/app/services/cursos.service';
-import { Cursos } from 'src/app/models/cursos.model';
+import { DocentesService } from 'src/app/services/docentes.service';
+import { Docentes } from 'src/app/models/docentes.model';
 
 @Component({
-  selector: 'app-editar-curso',
-  templateUrl: './editar-curso.component.html',
-  styleUrls: ['./editar-curso.component.css'],
+  selector: 'app-editar-docente',
+  templateUrl: './editar-docente.component.html',
+  styleUrls: ['./editar-docente.component.css'],
 })
-export class EditarCursoComponent implements OnInit {
-  //datos para llenar y actualizar los inputs
-  @Input() currentCurso: Cursos = {
-    id_curso: 0,
-    nombre: '',
-    descripcion: '',
+export class EditarDocenteComponent implements OnInit {
+
+  //datos necesarios para el update
+  @Input() currentDocente: Docentes = {
+    id_docente: 0,
+    cui: '',
+    correo: '',
+    nombres: '',
+    apellidos: '',
+    nombre_completo: '',
+    genero: '',
+    direccion: '',
+    esta_activo: false,
   };
 
   //** indicar en constructor el servicio, modal y routing
   constructor(
-    private CursosService: CursosService,
+    private DocentesService: DocentesService,
     private route: ActivatedRoute,
     private router: Router,
     public modal: NgbModal
@@ -32,32 +39,41 @@ export class EditarCursoComponent implements OnInit {
 
   ngOnInit(): void {
     //necesario para que currentX se pueda actualizar
-    this.getCurso(this.route.snapshot.params['id']);
+    this.getDocente(this.route.snapshot.params['id']);
   }
 
-  getCurso(id: number): void {
-    this.CursosService.get(id).subscribe({
+  getDocente(id: number): void {
+    this.DocentesService.getOne(id).subscribe({
       next: (data) => {
-        this.currentCurso = data;
-        console.log(data);
+        this.currentDocente = data;
       },
       error: (e) => console.error(e),
     });
   }
 
-  updateCurso(
+  updateDocente(
     mensajeExito: any,
     mensajeError: any,
     mensajeDatosFaltantes: any
   ): void {
     //ya sea el nombre o la descripcion, si uno de los dos falta mostrar la ventan modal
-    if (!this.currentCurso.nombre || !this.currentCurso.descripcion) {
+    if (
+      !this.currentDocente.cui ||
+      !this.currentDocente.correo ||
+      !this.currentDocente.nombres ||
+      !this.currentDocente.apellidos ||
+      !this.currentDocente.genero ||
+      !this.currentDocente.direccion
+    ) {
+      console.log(this.currentDocente.genero);
+      console.log(this.currentDocente.esta_activo)
+      
       //en caso de que falte un dato mostrar una ventana modal al respecto
       this.modal.open(mensajeDatosFaltantes, { centered: true });
     } else {
-      this.CursosService.update(
-        this.currentCurso.id_curso,
-        this.currentCurso
+      this.DocentesService.update(
+        this.currentDocente.id_docente,
+        this.currentDocente
       ).subscribe({
         next: (res) => {
           console.log(res);

@@ -1,9 +1,12 @@
+//angular
 import { Component, OnInit } from '@angular/core';
+
+//ventana modal
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
 //importar modelo y servicio necesario para la tabla
 import { Cursos } from 'src/app/models/cursos.model';
 import { CursosService } from 'src/app/services/cursos.service';
-//ventana modal
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-agregar-curso',

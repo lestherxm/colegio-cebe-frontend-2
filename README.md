@@ -9,3 +9,17 @@ npm install
 ```
 ng serve
 ```
+
+###### `-` Generate model - configure after
+```
+ng g class models/{nombreModelo} --type=model
+```
+###### `-` Generate service - configure after
+```
+ng g s services/{nombreServicio}
+```
+
+###### `-` Generate components
+```
+ng g c components/path/{nombreComponente}
+```

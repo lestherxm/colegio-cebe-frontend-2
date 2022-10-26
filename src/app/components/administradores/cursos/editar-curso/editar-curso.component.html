@@ -1,4 +1,4 @@
-<h1>EDITANDO DATOS DEL CURSO</h1>
+<h1>📚 EDITANDO DATOS DEL CURSO</h1>
 <hr>
 <div class="submit-form">
     <form>
@@ -17,10 +17,9 @@
         </div>
 
         <div class="btnOpciones">
-            <button type="button" class="btn btn-warning" routerLink="/menu-admins/cursos">Cancelar</button>
+            <button type="button" class="btn btn-warning" routerLink="/menu-admins/cursos">Regresar</button>
             <button type="button" class="btn btn-primary" (click)="updateCurso(mensajeExito, mensajeError, mensajeDatosFaltantes)">Actualizar</button>
         </div>
-        <!-- (click)="saveCursos(mensajeExito, mensajeError, mensajeDatosFaltantes)" -->
     </form>
 </div>
 
@@ -31,7 +30,7 @@
             <mat-icon>
                 check_circle
             </mat-icon>
-            Enhorabuena!</h4>
+            ¡Enhorabuena!</h4>
         <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -53,7 +52,7 @@
             <mat-icon>
                 warning
             </mat-icon>
-            DATOS FALTANTES</h4>
+            ¡DATOS FALTANTES!</h4>
         <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
         </button>

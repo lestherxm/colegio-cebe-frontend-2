@@ -31,6 +31,8 @@ import { DocentesComponent } from './components/administradores/docentes/docente
 import { CursosComponent } from './components/administradores/cursos/cursos.component';
 import { AgregarCursoComponent } from './components/administradores/cursos/agregar-curso/agregar-curso.component';
 import { EditarCursoComponent } from './components/administradores/cursos/editar-curso/editar-curso.component';
+import { EditarDocenteComponent } from './components/administradores/docentes/editar-docente/editar-docente.component';
+import { AgregarDocenteComponent } from './components/administradores/docentes/agregar-docente/agregar-docente.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { EditarCursoComponent } from './components/administradores/cursos/editar
     DocentesComponent,
     CursosComponent,
     AgregarCursoComponent,
-    EditarCursoComponent
+    EditarCursoComponent,
+    EditarDocenteComponent, 
+    AgregarDocenteComponent
   ],
   imports: [
     FormsModule,
