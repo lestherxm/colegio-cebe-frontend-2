@@ -10,6 +10,9 @@ import { MenuAdminsComponent } from './components/administradores/menu-admins/me
 import { AulasComponent } from './components/administradores/aulas/aulas.component';
 import { DocentesComponent } from './components/administradores/docentes/docentes.component';
 import { AlumnosComponent } from './components/administradores/alumnos/alumnos.component';
+import { CursosComponent } from './components/administradores/cursos/cursos.component';
+import { AgregarCursoComponent } from './components/administradores/cursos/agregar-curso/agregar-curso.component';
+import { EditarCursoComponent } from './components/administradores/cursos/editar-curso/editar-curso.component';
 
 const routes: Routes = [
 
@@ -24,7 +27,10 @@ const routes: Routes = [
     children:[
       { path: 'aulas', component: AulasComponent },
       { path: 'docentes', component: DocentesComponent },
-      { path: 'alumnos', component:  AlumnosComponent}
+      { path: 'alumnos', component:  AlumnosComponent},
+      { path: 'cursos', component: CursosComponent},
+      { path: 'agregar-curso', component: AgregarCursoComponent },
+      { path: 'editar-curso/:id', component: EditarCursoComponent} 
     ]
   }
   

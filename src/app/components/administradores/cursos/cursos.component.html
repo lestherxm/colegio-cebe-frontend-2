@@ -1,0 +1,65 @@
+<div class="contenedor">
+    <div class="encabezado">
+        <div>
+            <h1><strong>CURSOS</strong></h1>
+        </div>
+        <div>
+            <button mat-raised-button type="button" class="btn btn-success" routerLink="/menu-admins/agregar-curso">
+                <mat-icon>note_add</mat-icon>
+                <span>Agregar</span>
+            </button>
+        </div>
+    </div>
+    <!-- <hr class="solid"> -->
+    <div class="contenido">
+        <table class="table table-striped">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr *ngFor="let curso of cursos">
+                    <td>{{curso.nombre}}</td>
+                    <td>{{curso.descripcion}}</td>
+                    <!-- Al leer cada elemento se setea el id al routerLink para que se pueda editar un elemento especifico cuando es clickeado -->
+                    <button type="button" class="btn btn-warning" routerLink="/menu-admins/editar-curso/{{curso.id_curso}}">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <!-- Al leer cada elemento se setea el id al metodo para que pueda ser eliminado -->
+                    <button type="button" class="btn btn-danger" (click)="confirmDeleteCurso(msgEliminar, curso.id_curso)">
+                        <mat-icon>delete_outline</mat-icon>
+                    </button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <router-outlet></router-outlet> -->
+</div>
+
+<!-- VENTANA MODAL DATOS FALTANTES -->
+<ng-template #msgEliminar let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">
+            <mat-icon>
+                warning
+            </mat-icon>
+            ATENCIÓN!</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        ¿Realmente deseas eliminar el registro?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close()">
+            NO
+        </button>
+        <button type="button" class="btn btn-danger" (click)="deleteCurso()">
+            SÍ
+        </button>
+    </div>
+</ng-template>

@@ -14,19 +14,6 @@ mat-sidenav {
     text-align: center;
 }
 
-/* Se va c cambiar dependiendo de lo que se quiera mostrar*/
-.content {
-    height: calc(100vh - 100px);
-    margin: 16px;
-    margin-left: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    color: lightgray;
-    border-radius: 12px;
-}
-
 mat-sidenav-container {
     height: calc(100vh - 65px);
 }
@@ -65,4 +52,17 @@ mat-divider {
     margin-top: 16px;
     margin-bottom: 16px;
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.content{
+    background: white;
+    color: #050505;
+    height: calc(100vh - 100px);
+    margin: 16px;
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
 }

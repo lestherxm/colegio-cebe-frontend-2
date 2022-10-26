@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +11,9 @@ import { LoginAdminsComponent } from './components/login/login-admins/login-admi
 import { LoginDocentesComponent } from './components/login/login-docentes/login-docentes.component';
 import { LoginEstudiantesComponent } from './components/login/login-estudiantes/login-estudiantes.component';
 import { LoginPadresComponent } from './components/login/login-padres/login-padres.component';
+
+// angular bootstrap modal
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 //animaciones y angular material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +28,9 @@ import { MenuAdminsComponent } from './components/administradores/menu-admins/me
 import { AulasComponent } from './components/administradores/aulas/aulas.component';
 import { AlumnosComponent } from './components/administradores/alumnos/alumnos.component';
 import { DocentesComponent } from './components/administradores/docentes/docentes.component';
+import { CursosComponent } from './components/administradores/cursos/cursos.component';
+import { AgregarCursoComponent } from './components/administradores/cursos/agregar-curso/agregar-curso.component';
+import { EditarCursoComponent } from './components/administradores/cursos/editar-curso/editar-curso.component';
 
 
 @NgModule({
@@ -37,9 +45,14 @@ import { DocentesComponent } from './components/administradores/docentes/docente
     MenuAdminsComponent,
     AulasComponent,
     AlumnosComponent,
-    DocentesComponent
+    DocentesComponent,
+    CursosComponent,
+    AgregarCursoComponent,
+    EditarCursoComponent
   ],
   imports: [
+    FormsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -47,7 +60,8 @@ import { DocentesComponent } from './components/administradores/docentes/docente
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
