@@ -140,3 +140,7 @@ body {
 .btnIngresar{
     margin-right: 24px;
 }
+
+footer{
+    height: 40vh;
+}

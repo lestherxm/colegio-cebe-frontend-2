@@ -24,14 +24,16 @@
                 <tr *ngFor="let curso of cursos">
                     <td>{{curso.nombre}}</td>
                     <td>{{curso.descripcion}}</td>
-                    <!-- Al leer cada elemento se setea el id al routerLink para que se pueda editar un elemento especifico cuando es clickeado -->
-                    <button type="button" class="btn btn-warning" routerLink="/menu-admins/editar-curso/{{curso.id_curso}}">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                    <!-- Al leer cada elemento se setea el id al metodo para que pueda ser eliminado -->
-                    <button type="button" class="btn btn-danger" (click)="confirmDeleteCurso(msgEliminar, curso.id_curso)">
-                        <mat-icon>delete_outline</mat-icon>
-                    </button>
+                    <div class="btn-opciones">
+                        <!-- Al leer cada elemento se setea el id al routerLink para que se pueda editar un elemento especifico cuando es clickeado -->
+                        <button type="button" class="btn btn-outline-warning" routerLink="/menu-admins/editar-curso/{{curso.id_curso}}">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <!-- Al leer cada elemento se setea el id al metodo para que pueda ser eliminado -->
+                        <button type="button" class="btn btn-outline-danger" (click)="confirmDeleteCurso(msgEliminar, curso.id_curso)">
+                            <mat-icon >delete_outline</mat-icon>
+                        </button>
+                    </div>
                 </tr>
             </tbody>
         </table>

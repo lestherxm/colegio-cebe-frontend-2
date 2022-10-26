@@ -51,12 +51,11 @@ mat-sidenav-container {
 mat-divider {
     margin-top: 16px;
     margin-bottom: 16px;
+    /*barra de separacion de opciones*/
     background-color: rgba(255, 255, 255, 0.5);
 }
 
 .content{
-    background: white;
-    color: #050505;
     height: calc(100vh - 100px);
     margin: 16px;
     margin-left: 32px;
@@ -65,4 +64,5 @@ mat-divider {
     justify-content: center;
     align-items: center;
     border-radius: 12px;
+    background: white;
 }

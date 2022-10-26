@@ -1,5 +1,4 @@
 .contenedor{
-    /* height: calc(100vh - 100px); */
     max-height: calc(100vh - 100px);
     margin: 16px;
     margin-left: 32px;
@@ -14,8 +13,8 @@
 
 .contenido{
     margin-top: 24px;
-    width: fit-content;
-    max-width: 70vw;
+    width: max-content;
+    max-width: 80vw;
     max-height: 70vh;
     overflow: scroll;
 }
@@ -27,6 +26,12 @@
 
 .encabezado > div{
     margin-right: 24px;
+}
+
+.btn-opciones > button{
+    margin-right: 8px;
+    height: auto;
+    width: auto;
 }
 
 
