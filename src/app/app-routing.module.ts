@@ -15,6 +15,8 @@ import { AgregarCursoComponent } from './components/administradores/cursos/agreg
 import { EditarCursoComponent } from './components/administradores/cursos/editar-curso/editar-curso.component';
 import { EditarDocenteComponent } from './components/administradores/docentes/editar-docente/editar-docente.component';
 import { AgregarDocenteComponent } from './components/administradores/docentes/agregar-docente/agregar-docente.component';
+import { EditarAlumnoComponent } from './components/administradores/alumnos/editar-alumno/editar-alumno.component';
+import { AgregarAlumnoComponent } from './components/administradores/alumnos/agregar-alumno/agregar-alumno.component';
 
 const routes: Routes = [
 
@@ -27,24 +29,23 @@ const routes: Routes = [
   { path: 'login-padres', component: LoginPadresComponent },
   { path: 'menu-admins', component: MenuAdminsComponent,
     children:[
-      
+      //CRUD Cursos
       { path: 'agregar-curso', component: AgregarCursoComponent },
       { path: 'cursos', component: CursosComponent},
       { path: 'editar-curso/:id', component: EditarCursoComponent},
-      
+      //CRUD docentes
       { path: 'docentes', component: DocentesComponent },
       { path: 'agregar-docente', component:  AgregarDocenteComponent},
       { path: 'editar-docente/:id', component:  EditarDocenteComponent},
-
+      //CRUD alumnos
       { path: 'alumnos', component:  AlumnosComponent},
-      
-
+      { path: 'agregar-alumno', component: AgregarAlumnoComponent },
+      { path: 'editar-alumno/:id', component: EditarAlumnoComponent },
+      //CRUD aulas
       { path: 'aulas', component: AulasComponent }
       
     ]
   }
-  
-
 ];
 
 @NgModule({

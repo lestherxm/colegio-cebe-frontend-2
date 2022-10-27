@@ -53,22 +53,25 @@ export class AulasComponent implements OnInit {
     this.currentAula = {};
   }
 
-  confirmDeleteAula(msgEliminar: any, id_aula: number): void {
+  confirmDelete(msgEliminar: any, id_aula: number): void {
     //actualizar el @id del @curso a eliminar
     this.id_aula_action = id_aula;
     //Se pregunta primero al usuario si realmente desea elmininar el registro y basado en su respuesta se realiza la accion
     this.modal.open(msgEliminar,{centered:true})
   }
 
-  deleteAula(): void{
+  delete(mensajeError: any): void{
     console.log(`Se eliminara el @curso con @id ${this.id_aula_action}`);
       
       this.AulasService.delete(this.id_aula_action)
         .subscribe({
           next: (res) => {
             console.log(res);
-            this.modal.dismissAll();
-            this.refreshList()
+            this.modal.dismissAll(); //cerrar ventana de confirmacion
+            this.refreshList() //refrezcar lista
+            if (res.error){//en caso de haber error indicarselo al usuario
+              this.modal.open(mensajeError, { centered: true });
+            }
           },
           error: (e) => {
             console.error(e);

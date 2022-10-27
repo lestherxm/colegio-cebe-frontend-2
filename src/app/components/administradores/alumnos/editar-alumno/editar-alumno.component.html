@@ -1,4 +1,4 @@
-<h1>✍🏼 <strong>REGISTRANDO DATOS DEL DOCENTE</strong></h1>
+<h1>🧑🏼‍🎓 <strong>EDITANDO DATOS DEL ALUMNO</strong></h1>
 <hr>
 <div class="submit-form">
     <form>
@@ -6,75 +6,64 @@
             <span class="input-group-text">CUI</span>
             <!-- para el caso de las personas que se actualizan por cui, validar el value y el ngModule ya que son distintos -->
             <input class="form-control" type="text" aria-label="CUI" name="cui" id="cui" aria-describedby="basic-addon1"
-                required autocomplete="off" [(ngModel)]="docente.cui">
+                required autocomplete="off" [value]="currentAlumno.cui" [(ngModel)]="currentAlumno.cui">
             <!-- value permite setear el dato que viene de la DB -->
             <!-- ngModel obtiene los nuevos datos ingresado por el usuario -->
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">Correo</span>
             <input class="form-control" type="text" aria-label="Correo" name="Correo" id="Correo"
-                aria-describedby="basic-addon1" required autocomplete="off" [(ngModel)]="docente.correo">
+                aria-describedby="basic-addon1" required autocomplete="off" [value]="currentAlumno.correo"
+                [(ngModel)]="currentAlumno.correo">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">Nombres</span>
             <input class="form-control" type="text" aria-label="Nombres" name="Nombres" id="Nombres"
-                aria-describedby="basic-addon1" required autocomplete="off" [(ngModel)]="docente.nombres">
+                aria-describedby="basic-addon1" required autocomplete="off" [value]="currentAlumno.nombres"
+                [(ngModel)]="currentAlumno.nombres">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">Apellidos</span>
             <input class="form-control" type="text" aria-label="Apellidos" name="Apellidos" id="Apellidos"
-                aria-describedby="basic-addon1" required autocomplete="off" [(ngModel)]="docente.apellidos">
+                aria-describedby="basic-addon1" required autocomplete="off" [value]="currentAlumno.apellidos"
+                [(ngModel)]="currentAlumno.apellidos">
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text">Direccion</span>
             <input class="form-control" type="text" aria-label="direccion" name="direccion" id="direccion"
-                aria-describedby="basic-addon1" required autocomplete="off" [(ngModel)]="docente.direccion">
+                aria-describedby="basic-addon1" required autocomplete="off" [value]="currentAlumno.direccion"
+                [(ngModel)]="currentAlumno.direccion">
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text">Genero</span>
             <input class="form-control" type="text" aria-label="genero" name="genero" id="genero"
-                aria-describedby="basic-addon1" required autocomplete="off" [(ngModel)]="docente.genero">
-                <!-- ngModule trae el valor actual de la variable, tambien la setea -->
+                aria-describedby="basic-addon1" required autocomplete="off" [value]="currentAlumno.genero"
+                [(ngModel)]="currentAlumno.genero">
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text">Estado</span>
             <input class="form-control" type="text" aria-label="esta_activo" name="esta_activo" id="esta_activo"
-                aria-describedby="basic-addon1" required autocomplete="off" [(ngModel)]="docente.esta_activo">
+                aria-describedby="basic-addon1" required autocomplete="off" [value]="currentAlumno.esta_activo"
+                [(ngModel)]="currentAlumno.esta_activo">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Aula</span>
+            <input class="form-control" type="number" aria-label="id_aula" name="id_aula" id="id_aula"
+                aria-describedby="basic-addon1" required autocomplete="off" [value]="currentAlumno.id_aula"
+                [(ngModel)]="currentAlumno.id_aula">
         </div>
 
         <div class="btnOpciones">
-            <button type="button" class="btn btn-warning" routerLink="/menu-admins/docentes">Regresar</button>
+            <button type="button" class="btn btn-warning" routerLink="/menu-admins/alumnos">Regresar</button>
             <button type="button" class="btn btn-primary"
-                (click)="save(mensajeExito, mensajeError, mensajeDatosFaltantes)">Guardar</button>
+                (click)="updateAlumno(mensajeExito, mensajeError, mensajeDatosFaltantes)">Actualizar</button>
         </div>
     </form>
 </div>
-
-<!-- VENTANA MODAL MENSAJE EXITOSO -->
-<ng-template #mensajeExito let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title">
-            <mat-icon>
-                check_circle
-            </mat-icon>
-            ¡Enhorabuena!
-        </h4>
-        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        Los datos se han registrado correctamente.
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="modal.close()" routerLink="/menu-admins/docentes">
-            OK
-        </button>
-    </div>
-</ng-template>
 
 <!-- VENTANA MODAL DATOS FALTANTES -->
 <ng-template #mensajeDatosFaltantes let-modal>
@@ -99,7 +88,30 @@
     </div>
 </ng-template>
 
-<!-- VENTANA MODAL DATOS FALTANTES -->
+<!-- VENTANA MODAL MENSAJE EXITOSO -->
+<ng-template #mensajeExito let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">
+            <mat-icon>
+                check_circle
+            </mat-icon>
+            ¡Enhorabuena!
+        </h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Los datos se han actualizado correctamente.
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="modal.close()" routerLink="/menu-admins/alumnos">
+            OK
+        </button>
+    </div>
+</ng-template>
+
+<!-- VENTANA MODAL MENSAJE DE ERROR -->
 <ng-template #mensajeError let-modal>
     <div class="modal-header">
         <h4 class="modal-title">
@@ -113,7 +125,7 @@
         </button>
     </div>
     <div class="modal-body">
-        Se ha producido un error al registrar los datos.
+        Se ha producido un error al actualizar los datos.
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="modal.close()">

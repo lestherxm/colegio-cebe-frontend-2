@@ -32,7 +32,7 @@ export class AgregarDocenteComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  saveDocentes(
+  save(
     mensajeExito: any,
     mensajeError: any,
     mensajeDatosFaltantes: any

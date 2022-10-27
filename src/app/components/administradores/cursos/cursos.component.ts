@@ -53,22 +53,24 @@ export class CursosComponent implements OnInit {
     this.currentCurso = {};
   }
 
-  confirmDeleteCurso(msgEliminar: any, id_curso: number): void {
+  confirmDelete(askEliminar: any, id_curso: number): void {
     //actualizar el @id del @curso a eliminar
     this.id_curso_action = id_curso;
     //Se pregunta primero al usuario si realmente desea elmininar el registro y basado en su respuesta se realiza la accion
-    this.modal.open(msgEliminar,{centered:true})
+    this.modal.open(askEliminar,{centered:true})
   }
 
-  deleteCurso(): void{
+  delete(mensajeError: any): void{
     console.log(`Se eliminara el @curso con @id ${this.id_curso_action}`);
-      
       this.CursosService.delete(this.id_curso_action)
         .subscribe({
           next: (res) => {
             console.log(res);
-            this.modal.dismissAll();
-            this.refreshList()
+            this.modal.dismissAll(); //cerrar ventana de confirmacion
+            this.refreshList() //refrezcar lista
+            if (res.error){//en caso de haber error indicarselo al usuario
+              this.modal.open(mensajeError, { centered: true });
+            }
           },
           error: (e) => {
             console.error(e);
