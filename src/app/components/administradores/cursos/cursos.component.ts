@@ -71,7 +71,8 @@ export class CursosComponent implements OnInit {
             this.refreshList()
           },
           error: (e) => {
-            console.error(e)
+            console.error(e);
+            alert('Hubo un erro al eliminar el registro.');
           }
         });
   
