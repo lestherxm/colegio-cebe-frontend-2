@@ -18,4 +18,8 @@ export class CursosAulaService {
     return this.http.get<CursosAula>(`${baseUrl}/${id_aula}`); 
   }
 
+  delete(id_aula: any, id_curso: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id_aula}`,id_curso);
+  }
+
 }

@@ -20,6 +20,9 @@ import { AgregarAlumnoComponent } from './components/administradores/alumnos/agr
 import { AgregarAulaComponent } from './components/administradores/aulas/agregar-aula/agregar-aula.component';
 import { EditarAulaComponent } from './components/administradores/aulas/editar-aula/editar-aula.component';
 import { CursosAulaComponent } from './components/administradores/aulas/cursos-aula/cursos-aula.component';
+import { MenuDocentesComponent } from './components/docentes/menu-docentes/menu-docentes.component';
+import { MenuAlumnosComponent } from './components/alumnos/menu-alumnos/menu-alumnos.component';
+import { MenuPadresComponent } from './components/padres/menu-padres/menu-padres.component';
 
 const routes: Routes = [
 
@@ -53,7 +56,10 @@ const routes: Routes = [
 
       
     ]
-  }
+  },
+  { path: 'menu-docentes', component: MenuDocentesComponent },
+  { path: 'menu-alumnos', component: MenuAlumnosComponent },
+  { path: 'menu-padres', component: MenuPadresComponent }
 ];
 
 @NgModule({

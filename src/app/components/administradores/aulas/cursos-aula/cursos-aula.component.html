@@ -4,10 +4,11 @@
             <h1>🏫 <strong>NOMBRE DEL AULA</strong></h1>
         </div>
         <div>
-            <!-- <button mat-raised-button type="button" class="btn btn-success" routerLink="/menu-admins/cursos-aula-agregar">
+            <!-- routerLink="/menu-admins/" -->
+            <button mat-raised-button type="button" class="btn btn-success" >
                 <mat-icon>note_add</mat-icon>
                 <span>Agregar Curso</span>
-            </button> -->
+            </button>
         </div>
     </div>
     <!-- <hr class="solid"> -->
@@ -26,19 +27,25 @@
                     <td style="color:black"><strong>{{curso.id_curso}}</strong></td>
                     <td>{{curso.nombre}}</td>
                     <td>{{curso.descripcion}}</td>
-                    <!-- <div class="btn-opciones"> -->
+                    <div class="btn-opciones">
                         <!-- Al leer cada elemento se setea el id al routerLink para que se pueda editar un elemento especifico cuando es clickeado -->
-                        <!-- <button type="button" class="btn btn-outline-warning" routerLink="/menu-admins/editar-curso/{{curso.id_curso}}">
+                        <!-- routerLink="/menu-admins/editar-curso/{{curso.id_curso}}" -->
+                        <button type="button" class="btn btn-outline-warning" >
                             <mat-icon>edit</mat-icon>
-                        </button> -->
+                        </button>
                         <!-- Al leer cada elemento se setea el id al metodo para que pueda ser eliminado -->
-                        <!-- <button type="button" class="btn btn-outline-danger" (click)="confirmDelete(askEliminar, curso.id_curso)">
+                        <!-- (click)="confirmDelete(askEliminar, curso.id_curso)" -->
+                        <button type="button" class="btn btn-outline-danger" >
                             <mat-icon >delete_outline</mat-icon>
-                        </button> -->
-                    <!-- </div> -->
+                        </button>
+                    </div>
                 </tr>
             </tbody>
         </table>
+    </div>
+    <br>
+    <div class="btnOpciones">
+        <button type="button" class="btn btn-warning" routerLink="/menu-admins/aulas">Regresar</button>
     </div>
     <!-- <router-outlet></router-outlet> -->
 </div>
@@ -63,9 +70,9 @@
         <button type="button" class="btn btn-secondary" (click)="modal.close()">
             NO
         </button>
-        <!-- <button type="button" class="btn btn-danger" (click)="delete(mensajeError)">
+        <button type="button" class="btn btn-danger" (click)="delete(mensajeError)">
             SÍ
-        </button> -->
+        </button>
     </div>
 </ng-template>
 

@@ -3,23 +3,18 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
-  selector: 'app-menu-admins',
-  templateUrl: './menu-admins.component.html',
-  styleUrls: ['./menu-admins.component.css']
+  selector: 'app-menu-docentes',
+  templateUrl: './menu-docentes.component.html',
+  styleUrls: ['./menu-docentes.component.css']
 })
-export class MenuAdminsComponent implements OnInit {
+export class MenuDocentesComponent implements OnInit {
 
-  @Input() childMessage: string = '';
-    
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
-  constructor(private oberver: BreakpointObserver) { 
-
-  }
+  constructor(private oberver: BreakpointObserver) {  }
 
   ngOnInit(): void {
-    console.log(`Consultar DB with correo admin > ${this.childMessage}`);
   }
 
   ngAfterViewInit(){

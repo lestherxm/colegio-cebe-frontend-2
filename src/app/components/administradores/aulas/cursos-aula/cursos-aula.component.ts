@@ -50,4 +50,36 @@ export class CursosAulaComponent implements OnInit {
       });
   }
 
+  confirmDelete(askEliminar: any, id_curso: number): void {
+    //actualizar el @id del @curso a eliminar
+    this.id_curso_aula_action = id_curso;
+    //Se pregunta primero al usuario si realmente desea elmininar el registro y basado en su respuesta se realiza la accion
+    this.modal.open(askEliminar,{centered:true})
+  }
+
+  refreshList(): void {
+    this.retrieveCursos(this.route.snapshot.params['id']);
+    this.currentCurso = {};
+  }
+
+  delete(mensajeError: any): void{
+    console.log(`Se eliminara el @curso con @id ${this.id_curso_aula_action }`);
+      this.CursosAulaService.delete(this.route.snapshot.params['id'], this.id_curso_aula_action)
+        .subscribe({
+          next: (res) => {
+            console.log(res);
+            this.modal.dismissAll(); //cerrar ventana de confirmacion
+            this.refreshList() //refrezcar lista
+            if (res.error){//en caso de haber error indicarselo al usuario
+              this.modal.open(mensajeError, { centered: true });
+            }
+          },
+          error: (e) => {
+            console.error(e);
+            alert('Hubo un erro al eliminar el registro.');
+          }
+        });
+  
+  }
+
 }
