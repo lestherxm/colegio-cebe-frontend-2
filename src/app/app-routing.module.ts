@@ -17,6 +17,9 @@ import { EditarDocenteComponent } from './components/administradores/docentes/ed
 import { AgregarDocenteComponent } from './components/administradores/docentes/agregar-docente/agregar-docente.component';
 import { EditarAlumnoComponent } from './components/administradores/alumnos/editar-alumno/editar-alumno.component';
 import { AgregarAlumnoComponent } from './components/administradores/alumnos/agregar-alumno/agregar-alumno.component';
+import { AgregarAulaComponent } from './components/administradores/aulas/agregar-aula/agregar-aula.component';
+import { EditarAulaComponent } from './components/administradores/aulas/editar-aula/editar-aula.component';
+import { CursosAulaComponent } from './components/administradores/aulas/cursos-aula/cursos-aula.component';
 
 const routes: Routes = [
 
@@ -42,7 +45,12 @@ const routes: Routes = [
       { path: 'agregar-alumno', component: AgregarAlumnoComponent },
       { path: 'editar-alumno/:id', component: EditarAlumnoComponent },
       //CRUD aulas
-      { path: 'aulas', component: AulasComponent }
+      { path: 'aulas', component: AulasComponent },
+      { path: 'agregar-aula', component: AgregarAulaComponent },
+      { path: 'editar-aula/:id', component: EditarAulaComponent },
+      { path: 'cursos-aula/:id', component: CursosAulaComponent }
+
+
       
     ]
   }

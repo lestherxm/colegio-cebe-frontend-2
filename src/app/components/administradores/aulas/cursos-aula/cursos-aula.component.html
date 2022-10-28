@@ -1,12 +1,12 @@
 <div class="contenedor">
     <div class="encabezado">
         <div>
-            <h1>🏫 <strong>AULAS</strong></h1>
+            <h1>🏫 <strong>NOMBRE DEL AULA</strong></h1>
         </div>
         <div>
-            <button mat-raised-button type="button" class="btn btn-success" routerLink="/menu-admins/agregar-aula">
+            <button mat-raised-button type="button" class="btn btn-success" routerLink="/menu-admins/cursos-aula-agregar">
                 <mat-icon>note_add</mat-icon>
-                <span>Agregar</span>
+                <span>Agregar Curso</span>
             </button>
         </div>
     </div>
@@ -15,32 +15,19 @@
         <table class="table table-hover">
             <thead class="table-light">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Cupos</th>
-                    <th scope="col">Inscritos</th>
+                    <th scope="col">Curso</th>
                     <th scope="col" style="text-align: center;">Opciones</th>
                 </tr>
             </thead>
-            <tbody class="table-group-divider">
-                <tr *ngFor="let aula of aulas">
-                    <td style="color:black"><strong>{{aula.id_aula}}</strong></td>
-                    <td>{{aula.nombre}}</td>
-                    <td style="text-align: center;">{{aula.n_cupos}}</td>
-                    <td style="text-align: center;">{{aula.n_inscritos}}</td>
+            <!-- <tbody class="table-group-divider">
+                <tr *ngFor="let curso of cursos_aula">
+                    <td style="color:black"><strong>{{curso.nombre}}</strong></td>
                     <td>
                         <div class="btn-opciones">
-                            <!-- Al leer cada elemento se setea el id al metodo para que pueda ser usado -->
-                            <button type="button" class="btn btn-outline-info"
-                                routerLink="/menu-admins/cursos-aula/{{aula.id_aula}}">
-                                <mat-icon>feed</mat-icon>
-                            </button>
-                            <!-- Al leer cada elemento se setea el id al routerLink para que se pueda editar un elemento especifico cuando es clickeado -->
                             <button type="button" class="btn btn-outline-warning"
                                 routerLink="/menu-admins/editar-aula/{{aula.id_aula}}">
                                 <mat-icon>edit</mat-icon>
                             </button>
-                            <!-- Al leer cada elemento se setea el id al metodo para que pueda ser eliminado -->
                             <button type="button" class="btn btn-outline-danger"
                                 (click)="confirmDelete(askEliminar, aula.id_aula)">
                                 <mat-icon>delete_outline</mat-icon>
@@ -48,7 +35,7 @@
                         </div>
                     </td>
                 </tr>
-            </tbody>
+            </tbody> -->
         </table>
     </div>
     <!-- <router-outlet></router-outlet> -->
@@ -74,9 +61,9 @@
         <button type="button" class="btn btn-secondary" (click)="modal.close()">
             NO
         </button>
-        <button type="button" class="btn btn-danger" (click)="delete(mensajeError)">
+        <!-- <button type="button" class="btn btn-danger" (click)="delete(mensajeError)">
             SÍ
-        </button>
+        </button> -->
     </div>
 </ng-template>
 
@@ -102,3 +89,4 @@
         </button>
     </div>
 </ng-template>
+

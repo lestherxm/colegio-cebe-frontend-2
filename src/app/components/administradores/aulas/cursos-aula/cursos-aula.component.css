@@ -6,6 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* font-size: 2rem; */
     color: rgb(42, 42, 42);
     border-radius: 12px;
 }
@@ -24,10 +25,6 @@
 }
 
 .encabezado > div{
-    margin-right: 24px;
-}
-
-.encabezado > div > button{
     margin-right: 24px;
 }
 
